@@ -46,7 +46,7 @@ const Form: FC = () => {
                     checked={selectedType === "ИП или организация"}
                     onChange={handleRadioChange}
                   />
-                  ИП или организация
+                  ИНН или названию
                 </label>
 
                 <label className="radio-label">
@@ -72,34 +72,37 @@ const Form: FC = () => {
                   {...register("INNSearch", {
                     required: "Это поле обязательно",
                   })}
-                  placeholder="ИНН или Название компании"
+                  placeholder="Поиск по ИНН или названию"
                 />
                 {errors.INNSearch && (
                   <p className="error">{errors.INNSearch.message}</p>
                 )}
-                
               </label>
               <div>
-                <label htmlFor="typeOrganization" className="h3 label-input">
-                  Тип организации:
-                  <select
-                    {...register("typeOrgnization", {
-                      required: "Выберите тип организации",
-                    })}
-                    className="input input-type-organ"
-                    defaultValue=""
-                  >
-                    <option value="" disabled>
-                      Выберите тип организации
-                    </option>
-                    <option value="правительственные">правительственные</option>
-                    <option value="коммерческие">коммерческие</option>
-                    <option value="бюджетные">бюджетные</option>
-                  </select>
-                  {errors.typeOrgnization && (
-                    <p className="error">{errors.typeOrgnization.message}</p>
-                  )}
-                </label>
+                <div>
+                  <label htmlFor="typeOrganization" className="h3 label-input">
+                    Тип организации:
+                    <select
+                      {...register("typeOrgnization", {
+                        required: "Выберите тип организации",
+                      })}
+                      className="input input-type-organ"
+                      defaultValue=""
+                    >
+                      <option value="" disabled>
+                        Тип организации
+                      </option>
+                      <option value="правительственные">
+                        Правительственные
+                      </option>
+                      <option value="коммерческие">Коммерческие</option>
+                      <option value="бюджетные">Бюджетные</option>
+                    </select>
+                    {errors.typeOrgnization && (
+                      <p className="error">{errors.typeOrgnization.message}</p>
+                    )}
+                  </label>
+                </div>
               </div>
 
               <label className="h3 label-input">
@@ -117,14 +120,14 @@ const Form: FC = () => {
                 )}
               </label>
               <label className="h3 label-input">
-                ИНН или Название компании
+                ИНН
                 <input
                   className="input"
                   type="text"
                   {...register("INN", {
                     required: "Это поле обязательно",
                   })}
-                  placeholder="ИНН или Название компании"
+                  placeholder="ИНН"
                 />
                 {errors.INN && <p className="error">{errors.INN.message}</p>}
               </label>
@@ -167,12 +170,13 @@ const Form: FC = () => {
                   <p className="error">{errors.adress.message}</p>
                 )}
               </label>
-              <label className="custom-checkbox h3">
+              <label className="h3 custom-checkbox">
                 <input
                   type="checkbox"
                   {...register("matchesTheActualAddress")}
+                  className="custom-checkbox-input"
                 />
-                <span className="checkmark "></span>
+                <span className="checkmark"></span>
                 Совпадает с фактическим
               </label>
             </div>

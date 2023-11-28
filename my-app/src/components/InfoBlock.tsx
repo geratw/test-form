@@ -16,7 +16,7 @@ const InfoBlock: FC = () => {
           <SvgIcon name="factory" />
           <p className="svg-info-person-text">Организация</p>
         </div>
-        <div className="svg-info-person">
+        <div className="svg-info-person svg-info-person1">
           <SvgIcon name="blackList" />
           <p className="svg-info-person-text">Черный список</p>
         </div>
@@ -26,7 +26,7 @@ const InfoBlock: FC = () => {
           Есть вопросы?
           <br /> Обратитесь в поддержку
         </h2>
-        <h3 className="h3 ">
+        <h3 className="h3">
           Свяжемся с Вами в течение 30 минут. Работаем с 9:00 до 21:00
         </h3>
         <button>Обратиться</button>
