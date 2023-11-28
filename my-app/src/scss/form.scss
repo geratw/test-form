@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;600&display=swap");
+@import "./variables";
+
+body {
+  background-color: var(--bg-color);
+}
+
+.body-main {
+  width: 60%;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-main {
+  font-family: "Manrope", sans-serif;
+
+  width: 100%;
+  margin: 0 auto 0 20px;
+  padding: 45px;
+  border: none;
+  border-radius: 20px;
+  border: 1px solid var(--form-bg-color);
+  background: var(--form-bg-color);
+
+  div {
+    margin-bottom: 15px;
+    max-width: 600px;
+  }
+
+  button {
+    padding: 15px 30px;
+    background: var(--btn-color);
+
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #cb441b;
+    }
+  }
+}
+
+.input-radio-btn {
+  margin-right: 15px;
+}
+
+.input-type-organ {
+  width: 100%;
+}
+
+.div-Tax-and-VAT {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-connect {
+  color: var(--text-color);
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.div-type-registration {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.radio-label {
+  display: flex;
+}
+
+.checkbox {
+  color: #cb441b;
+}
+.div-Tax {
+  width: 70%;
+}
+.div-VAT {
+  width: 25%;
+}
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  a {
+    color: #8e8e8e;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 21px;
+    text-decoration: none;
+  }
+}
+
+.div-main {
+  display: flex;
+}
+
+.div-main-info {
+  width: 260px;
+}
+
+.info-penrson {
+  display: flex;
+  padding: 20px 10px;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  border-radius: 20px;
+  background-color: var(--form-bg-color);
+  margin-bottom: 20px;
+}
+
+.any-questions {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 20px;
+  border: 1px solid var(--Line, #eff0f4);
+  background-color: var(--form-bg-color);
+
+  button {
+    padding: 9px 20px 10px 20px;
+    background-color: var(--bg-form-color);
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    border: 1px solid #c7c7c7;
+    color: #f25627;
+  }
+  button:hover {
+    background-color: var(--bg-color);
+  }
+}
+
+.svg-info-person {
+  display: flex;
+  align-items: center;
+  background-color: #eef0f4;
+  width: 190px;
+  height: auto;
+  justify-content: flex-start;
+  padding: 10px 15px;
+  border-radius: 3px;
+  gap: 14px;
+}
+
+.svg-info-person-text {
+  margin: 0;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  h3,
+  p {
+    margin: 0;
+  }
+  img {
+    margin-right: 15px;
+  }
+}
