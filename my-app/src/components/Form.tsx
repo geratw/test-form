@@ -38,7 +38,7 @@ const Form: FC = () => {
   return (
     <div className="body-main">
       <div className="breadcrumbs">
-        <a href="/">Маркет</a> <SvgIcon name="breadcrumbs" />{" "}
+        <a href="/">Маркет</a> <SvgIcon name="breadcrumbs" />
         <a href="/PersonalAccount">Личный кабинет</a>
       </div>
       <h1 className="title">Личный кабинет</h1>

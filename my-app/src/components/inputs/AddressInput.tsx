@@ -1,6 +1,7 @@
 import React from "react";
 import { RegisterOptions, UseFormRegister, FieldErrors } from "react-hook-form";
 import { IsShippingField } from "../app.interface";
+
 interface AddressInputProps {
   register: UseFormRegister<any>;
   errors: FieldErrors<IsShippingField>;

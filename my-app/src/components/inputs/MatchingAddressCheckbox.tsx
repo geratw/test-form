@@ -3,7 +3,7 @@ import { UseFormRegister } from "react-hook-form";
 
 
 interface MatchingAddressCheckboxProps {
-  register: UseFormRegister<any>; // Replace 'any' with your form fields type
+  register: UseFormRegister<any>; 
 }
 
 const MatchingAddressCheckbox: React.FC<MatchingAddressCheckboxProps> = ({ register }) => {
