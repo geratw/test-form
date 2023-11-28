@@ -2,11 +2,24 @@ import { FC, useState } from "react";
 import "../scss/form.scss";
 import { IsShippingField } from "./app.interface";
 import InfoBlock from "./InfoBlock";
-import { useForm, SubmitHandler } from "react-hook-form";
 import { SvgIcon } from "./SvgIcon";
+import { useForm, SubmitHandler } from "react-hook-form";
+
+import AddressInput from "./inputs/AddressInput";
+import OGRNInput from "./inputs/OGRNInput";
+import KPPInput from "./inputs/KPPInput";
+import INNInput from "./inputs/INNInput";
+import NameOrgnizat from "./inputs/NameOrgnizat";
+import INNSearch from "./inputs/INNSearch";
+import OrganizationType from "./inputs/OrganizationType";
+import MatchingAddressCheckbox from "./inputs/MatchingAddressCheckbox";
+import RegistrationRadioButtons from "./inputs/RegistrationRadioButtons";
+import TaxRegime from "./inputs/TaxRegime";
+import VATRate from "./inputs/VATRate";
 
 const Form: FC = () => {
   const [selectedType, setSelectedType] = useState("ИП или организация");
+
   const {
     register,
     handleSubmit,
@@ -32,174 +45,31 @@ const Form: FC = () => {
       <div className="div-main">
         <InfoBlock />
         <form onSubmit={handleSubmit(onSubmit)} className="form-main">
-          <div className="">
+          <div>
             <h2 className="h2">Юридические данные</h2>
             <div>
               <h2 className="main-connect">Подключаюсь как</h2>
-              <div className="div-type-registration">
-                <label className="radio-label">
-                  <input
-                    type="radio"
-                    className="input-radio-btn"
-                    value="ИП или организация"
-                    name="registration"
-                    checked={selectedType === "ИП или организация"}
-                    onChange={handleRadioChange}
-                  />
-                  ИНН или названию
-                </label>
-
-                <label className="radio-label">
-                  <input
-                    className="input-radio-btn"
-                    type="radio"
-                    value="Самозанятый"
-                    name="registration"
-                    checked={selectedType === "Самозанятый"}
-                    onChange={handleRadioChange}
-                  />
-                  Самозанятый
-                </label>
-              </div>
+              <RegistrationRadioButtons
+                selectedType={selectedType}
+                handleRadioChange={handleRadioChange}
+              />
             </div>
+
             <div>
               <h2 className="h2 ">Данные организации</h2>
-              <label className="h3 label-input">
-                ИНН или Название компании
-                <input
-                  className="input"
-                  type="text"
-                  {...register("INNSearch", {
-                    required: "Это поле обязательно",
-                  })}
-                  placeholder="Поиск по ИНН или названию"
-                />
-                {errors.INNSearch && (
-                  <p className="error">{errors.INNSearch.message}</p>
-                )}
-              </label>
-              <div>
-                <div>
-                  <label htmlFor="typeOrganization" className="h3 label-input">
-                    Тип организации:
-                    <select
-                      {...register("typeOrgnization", {
-                        required: "Выберите тип организации",
-                      })}
-                      className="input input-type-organ"
-                      defaultValue=""
-                    >
-                      <option value="" disabled>
-                        Тип организации
-                      </option>
-                      <option value="правительственные">
-                        Правительственные
-                      </option>
-                      <option value="коммерческие">Коммерческие</option>
-                      <option value="бюджетные">Бюджетные</option>
-                    </select>
-                    {errors.typeOrgnization && (
-                      <p className="error">{errors.typeOrgnization.message}</p>
-                    )}
-                  </label>
-                </div>
-              </div>
 
-              <label className="h3 label-input">
-                Название (как в реестре)
-                <input
-                  className="input"
-                  type="text"
-                  {...register("nameOrgnization", {
-                    required: "Это поле обязательно",
-                  })}
-                  placeholder="Название"
-                />
-                {errors.nameOrgnization && (
-                  <p className="error">{errors.nameOrgnization.message}</p>
-                )}
-              </label>
-              <label className="h3 label-input">
-                ИНН
-                <input
-                  className="input"
-                  type="text"
-                  {...register("INN", {
-                    required: "Это поле обязательно",
-                  })}
-                  placeholder="ИНН"
-                />
-                {errors.INN && <p className="error">{errors.INN.message}</p>}
-              </label>
-
-              <label className="h3 label-input">
-                КПП
-                <input
-                  className="input"
-                  type="text"
-                  {...register("KPP", {
-                    required: "Это поле обязательно",
-                  })}
-                  placeholder="КПП"
-                />
-                {errors.KPP && <p className="error">{errors.KPP.message}</p>}
-              </label>
-              <label className="h3 label-input">
-                ОГРН / ОГРНИП
-                <input
-                  type="text"
-                  {...register("OGRN", {
-                    required: "Это поле обязательно",
-                  })}
-                  placeholder="ОГРН / ОГРНИП"
-                  className="input"
-                />
-                {errors.OGRN && <p className="error">{errors.OGRN.message}</p>}
-              </label>
-              <label className="h3 label-input">
-                Адрес регистрации (как в реестре)
-                <input
-                  className="input"
-                  type="text"
-                  {...register("adress", {
-                    required: "Это поле обязательно",
-                  })}
-                  placeholder="Адрес регистрации"
-                />
-                {errors.adress && (
-                  <p className="error">{errors.adress.message}</p>
-                )}
-              </label>
-              <label className="h3 custom-checkbox">
-                <input
-                  type="checkbox"
-                  {...register("matchesTheActualAddress")}
-                  className="custom-checkbox-input"
-                />
-                <span className="checkmark"></span>
-                Совпадает с фактическим
-              </label>
+              <INNSearch register={register} errors={errors} />
+              <OrganizationType register={register} errors={errors} />
+              <NameOrgnizat register={register} errors={errors} />
+              <INNInput register={register} errors={errors} />
+              <KPPInput register={register} errors={errors} />
+              <OGRNInput register={register} errors={errors} />
+              <AddressInput register={register} errors={errors} />
+              <MatchingAddressCheckbox register={register} />
             </div>
             <div className="div-Tax-and-VAT">
-              <div className="div-Tax">
-                <label htmlFor="TaxRegime " className="h3 label-input">
-                  Налоговый режим
-                  <select className="input" {...register("taxRegime")}>
-                    <option value="Общий (ОСН)">Общий (ОСН)</option>
-                  </select>
-                </label>
-              </div>
-              <div className="div-VAT">
-                <label className="h3 label-input">
-                  Ставка НДС
-                  <select className="input" {...register("VAT_Rate")}>
-                    <option value="10%">10%</option>
-                    <option value="20%">20%</option>
-                    <option value="30%">30%</option>
-                    <option value="40%">40%</option>
-                  </select>
-                </label>
-              </div>
+              <TaxRegime register={register} />
+              <VATRate register={register} />
             </div>
           </div>
           <button>Продолжить</button>

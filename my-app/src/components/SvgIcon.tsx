@@ -84,10 +84,23 @@ export const SvgIcon = ({ name }: Props) => {
           />
         </svg>
       );
-      case "breadcrumbs":
-          return (<svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-          <path d="M6 3.11719L11 8.11719L6 13.1172" stroke="#8E8E8E" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>);
+    case "breadcrumbs":
+      return (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="17"
+          viewBox="0 0 16 17"
+          fill="none"
+        >
+          <path
+            d="M6 3.11719L11 8.11719L6 13.1172"
+            stroke="#8E8E8E"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      );
     default:
       return <svg></svg>;
   }
